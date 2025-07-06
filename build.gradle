@@ -24,7 +24,7 @@ base {
     archivesName = mod_id
 }
 
-// Mojang ships Java 17 to end users from 1.18 to 1.20.4, so your mod should target Java 17.
+// Mojang ships Java 17 to end users in 1.20.4, so mods should target Java 17.
 java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 //minecraft.accessTransformers.file rootProject.file('src/main/resources/META-INF/accesstransformer.cfg')
