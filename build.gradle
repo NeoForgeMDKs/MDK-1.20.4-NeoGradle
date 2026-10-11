@@ -1,7 +1,7 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
-    id 'net.neoforged.gradle.userdev' version '7.1.38'
+    id 'net.neoforged.gradle.userdev' version '7.1.39'
 }
 
 tasks.named('wrapper', Wrapper).configure {
@@ -41,6 +41,13 @@ java.toolchain.languageVersion = JavaLanguageVersion.of(17)
 
 // Default run configurations.
 // These can be tweaked, removed, or duplicated as needed.
+// JST requires Java 21 to transform sources, while this mod targets Java 17.
+tasks.withType(net.neoforged.gradle.common.runtime.tasks.JavaSourceTransformer).configureEach {
+    javaLauncher = javaToolchains.launcherFor {
+        languageVersion = JavaLanguageVersion.of(21)
+    }
+}
+
 runs {
     // applies to all the run configs below
     configureEach {
